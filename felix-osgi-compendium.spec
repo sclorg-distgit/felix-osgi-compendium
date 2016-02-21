@@ -11,7 +11,7 @@
 
 Name:    %{?scl_prefix}%{pkg_name}
 Version: 1.4.0
-Release: 19.10%{?dist}
+Release: 19.11%{?dist}
 Summary: Felix OSGi R4 Compendium Bundle
 
 License: ASL 2.0
@@ -31,10 +31,10 @@ BuildArch:      noarch
 
 BuildRequires: %{?scl_prefix_java_common}javapackages-tools
 BuildRequires: %{?scl_prefix_java_common}maven-local
-BuildRequires: maven30-maven-surefire-provider-junit
-BuildRequires: maven30-felix-parent
-BuildRequires: maven30-felix-osgi-core
-BuildRequires: maven30-felix-osgi-foundation
+BuildRequires: %{?scl_prefix}maven-surefire-provider-junit
+BuildRequires: %{?scl_prefix}felix-parent
+BuildRequires: %{?scl_prefix}felix-osgi-core
+BuildRequires: %{?scl_prefix}felix-osgi-foundation
 BuildRequires: %{?scl_prefix_java_common}tomcat-servlet-3.0-api
 
 %description
@@ -48,7 +48,7 @@ API documentation for %{pkg_name}.
 
 %prep
 %setup -q -n %{bundle}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 
 # fix servlet api properly
@@ -67,13 +67,13 @@ set -e -x
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -86,6 +86,9 @@ set -e -x
 
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.4.0-19.11
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 1.4.0-19.10
 - maven33 rebuild
 
