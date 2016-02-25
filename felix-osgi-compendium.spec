@@ -11,7 +11,7 @@
 
 Name:    %{?scl_prefix}%{pkg_name}
 Version: 1.4.0
-Release: 19.11%{?dist}
+Release: 19.12%{?dist}
 Summary: Felix OSGi R4 Compendium Bundle
 
 License: ASL 2.0
@@ -30,7 +30,7 @@ Patch4:         0005-Add-getResourceURL-method-to-make-jbosgi-framework-h.patch
 BuildArch:      noarch
 
 BuildRequires: %{?scl_prefix_java_common}javapackages-tools
-BuildRequires: %{?scl_prefix_java_common}maven-local
+BuildRequires: %{?scl_prefix}maven-local
 BuildRequires: %{?scl_prefix}maven-surefire-provider-junit
 BuildRequires: %{?scl_prefix}felix-parent
 BuildRequires: %{?scl_prefix}felix-osgi-core
@@ -86,6 +86,9 @@ set -e -x
 
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 1.4.0-19.12
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.4.0-19.11
 - maven33 rebuild #2
 
