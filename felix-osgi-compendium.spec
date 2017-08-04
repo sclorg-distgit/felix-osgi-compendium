@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}felix-osgi-compendium
 Version:        1.4.0
-Release:        24.1%{?dist}
+Release:        24.2%{?dist}
 Summary:        Felix OSGi R4 Compendium Bundle
 License:        ASL 2.0
 URL:            http://felix.apache.org
@@ -68,6 +68,9 @@ This package contains API documentation for %{pkg_name}.
 %license LICENSE NOTICE
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 1.4.0-24.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 1.4.0-24.1
 - Automated package import and SCL-ization
 
